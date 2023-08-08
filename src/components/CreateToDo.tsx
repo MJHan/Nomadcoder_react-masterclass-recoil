@@ -21,14 +21,20 @@ const ErrorSpan = styled.span`
 `;
 
 const InputToDo = styled.input`
-  width: 90%;
+  width: 92%;
   border-radius: 15px;
   border-style: solid;
-  padding: 5px;
-  margin-right: 5px;
+  padding: 10px 5px 5px 5px;
   font-size: 16px;
   background-color: transparent;
   color: inherit;
+`;
+
+const FormToDo = styled.form`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 15px;
 `;
 
 const ButtonAdd = styled.button`
@@ -70,13 +76,13 @@ function CreateToDo() {
 
   return (
     <ContainerCreateToDo>
-      <form onSubmit={handleSubmit(handleValid)}>
+      <FormToDo onSubmit={handleSubmit(handleValid)}>
         <InputToDo
           {...register("toDo", { required: "Please write a To Do" })}
           placeholder="Write a to do"
         />
         <ButtonAdd>Add</ButtonAdd>
-      </form>
+      </FormToDo>
       <ErrorSpan>{errors?.toDo?.message}</ErrorSpan>
     </ContainerCreateToDo>
   );
