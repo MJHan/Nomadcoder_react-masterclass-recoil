@@ -24,7 +24,7 @@ const InputToDo = styled.input`
   width: 92%;
   border-radius: 15px;
   border-style: solid;
-  padding: 10px 5px 5px 5px;
+  padding: 5px 5px 5px 15px;
   font-size: 16px;
   background-color: transparent;
   color: inherit;
@@ -50,9 +50,6 @@ const ButtonAdd = styled.button`
   color: ${(props) => props.theme.bgColor};
   a {
     display: block;
-  }
-  &hover {
-    ${(props) => props.theme.textColor};
   }
   cursor: pointer;
 `;
