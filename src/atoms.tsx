@@ -2,13 +2,23 @@ import { atom, selector } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
 export enum Categories {
-  "TO_DO" = "TO_DO",
-  "DOING" = "DOING",
-  "DONE" = "DONE",
+  "TO_DO" = "ToDo",
+  "DOING" = "Doing",
+  "DONE" = "Done",
 }
 
-const { persistAtom } = recoilPersist({
+const { persistAtom: themePersist } = recoilPersist({
+  key: "themeMJ",
+  storage: localStorage,
+});
+
+const { persistAtom: toDoPersist } = recoilPersist({
   key: "toDoMJ",
+  storage: localStorage,
+});
+
+const { persistAtom: categoryPersist } = recoilPersist({
+  key: "categoryMJ",
   storage: localStorage,
 });
 
@@ -18,15 +28,27 @@ export interface ITodo {
   category: Categories;
 }
 
+export const isDarkMode = atom({
+  key: "isDark",
+  default: true,
+  effects_UNSTABLE: [themePersist],
+});
+
 export const categoryState = atom<Categories>({
   key: "category",
   default: Categories.TO_DO,
 });
 
+export const categoriesState = atom<Categories[]>({
+  key: "categories",
+  default: [Categories.TO_DO, Categories.DOING, Categories.DONE],
+  effects_UNSTABLE: [categoryPersist],
+});
+
 export const toDoState = atom<ITodo[]>({
   key: "toDo",
   default: [],
-  effects_UNSTABLE: [persistAtom],
+  effects_UNSTABLE: [toDoPersist],
 });
 
 export const toDoSelector = selector({

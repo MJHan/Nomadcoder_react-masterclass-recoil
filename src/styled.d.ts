@@ -7,6 +7,6 @@ declare module "styled-components" {
     accentColor: string;
     btnColor: string;
     cardBgColor: string;
-    coinBoxColor: string;
+    boxColor: string;
   }
 }

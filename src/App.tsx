@@ -2,6 +2,9 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import ToDoList from "./components/ToDoList";
 
+import { useRecoilValue } from "recoil";
+import { isDarkMode } from "./atoms";
+
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
 html, body, div, span, applet, object, iframe,
@@ -60,6 +63,9 @@ body {
   background-color:${(props) => props.theme.bgColor};
   color:${(props) => props.theme.textColor};
   line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 a {
   text-decoration:none;
@@ -68,9 +74,10 @@ a {
 `;
 
 function App() {
+  const isDark = useRecoilValue(isDarkMode);
   return (
     <>
-      <ThemeProvider theme={true ? darkTheme : lightTheme}>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
         <ToDoList />
       </ThemeProvider>

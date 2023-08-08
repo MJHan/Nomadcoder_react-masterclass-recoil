@@ -52,7 +52,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://mjhan.github.io/Nomadcoder_react-masterclass",
+  "homepage": "http://mjhan.github.io/Nomadcoder_react-masterclass-recoil",
   "devDependencies": {
     "@types/react-helmet": "^6.1.6",
     "@types/react-router-dom": "^5.3.3",

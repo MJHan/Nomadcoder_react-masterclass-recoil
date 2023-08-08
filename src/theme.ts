@@ -6,14 +6,17 @@ export const darkTheme: DefaultTheme = {
   accentColor: "#9c88ff",
   btnColor: "#d2dae2",
   cardBgColor: "transparent",
-  coinBoxColor: "rgba(0,0,0,0.5)",
+  componentBgColor: "rgba(0,0,0,0.5)",
+  boxColor: "rgba(41, 128, 185, 0.5)",
 };
 
 export const lightTheme: DefaultTheme = {
   bgColor: "whitesmoke",
   textColor: "black",
-  accentColor: "#0fbcf9",
-  btnColor: "#05c46b",
+  accentColor: "#1abc9c",
+  btnColor: "#AAB7B8",
+  // #05c46b
   cardBgColor: "white",
-  coinBoxColor: "rgba(210, 218, 226, 0.5)",
+  componentBgColor: "rgba(210, 218, 226, 0.5)",
+  boxColor: "rgba(26, 188, 156, 0.3)",
 };
