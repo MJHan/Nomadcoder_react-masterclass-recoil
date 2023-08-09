@@ -28,32 +28,39 @@ function ToDo({ text, category, id }: ITodo) {
     const {
       currentTarget: { name },
     } = event;
-    setToDos((oldToDos) => {
-      const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
-      const newToDo = { text, id, category: name as any };
-      if (name === "delete") {
+
+    if (name === "delete" && window.confirm("삭제하시겠습니까?")) {
+      setToDos((oldToDos) => {
+        const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
         return [
           ...oldToDos.slice(0, targetIndex),
           ...oldToDos.slice(targetIndex + 1),
         ];
-      }
-      return [
-        ...oldToDos.slice(0, targetIndex),
-        newToDo,
-        ...oldToDos.slice(targetIndex + 1),
-      ];
-    });
+      });
+    } else if (name !== "delete") {
+      setToDos((oldToDos) => {
+        const targetIndex = oldToDos.findIndex((toDo) => toDo.id === id);
+        const newToDo = { text, id, category: name as any };
+        return [
+          ...oldToDos.slice(0, targetIndex),
+          newToDo,
+          ...oldToDos.slice(targetIndex + 1),
+        ];
+      });
+    }
   };
   return (
     <LiToDo>
       <div>{text}</div>
       <div>
         <ButtonCategory
-          style={{ color: "tomato", fontWeight: "bold" }}
+          style={{
+            color: "#D32F2F",
+          }}
           onClick={onClick}
           name="delete"
         >
-          x
+          Delete
         </ButtonCategory>
         {categories.map((item) => (
           <ButtonCategory

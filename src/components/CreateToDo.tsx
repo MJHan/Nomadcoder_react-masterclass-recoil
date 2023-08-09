@@ -26,7 +26,7 @@ const InputToDo = styled.input`
   border-style: solid;
   padding: 5px 5px 5px 15px;
   font-size: 16px;
-  background-color: transparent;
+  background-color: ${(props) => props.theme.componentBgColor};
   color: inherit;
 `;
 
