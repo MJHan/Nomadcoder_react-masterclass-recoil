@@ -165,7 +165,7 @@ function ToDoList() {
   return (
     <Container>
       <Helmet>
-        <title>📝 To Do App by MJHan</title>
+        <title>To Do App by MJHan</title>
       </Helmet>
       <ButtonWrapper>
         <Button onClick={toggleDark}>Switch Theme</Button>
