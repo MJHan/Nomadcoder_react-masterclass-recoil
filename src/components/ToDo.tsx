@@ -60,7 +60,9 @@ function ToDo({ text, category, id }: ITodo) {
     <LiToDo>
       <ToDoTitle>
         <div>{text}</div>
-        <div style={{ fontSize: "9pt", color: "grey" }}>{createDate}</div>
+        <div style={{ fontSize: "9pt", color: "grey", whiteSpace: "nowrap" }}>
+          {createDate}
+        </div>
       </ToDoTitle>
 
       <div>
