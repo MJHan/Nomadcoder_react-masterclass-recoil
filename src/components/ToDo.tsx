@@ -21,9 +21,16 @@ const ButtonCategory = styled.button`
   margin: 10px 3px 3px 0px;
 `;
 
+const ToDoTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 function ToDo({ text, category, id }: ITodo) {
   const setToDos = useSetRecoilState(toDoState);
   const categories = useRecoilValue(categoriesState);
+
+  const createDate = new Date(id).toLocaleString("ko-KR");
   const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const {
       currentTarget: { name },
@@ -51,7 +58,11 @@ function ToDo({ text, category, id }: ITodo) {
   };
   return (
     <LiToDo>
-      <div>{text}</div>
+      <ToDoTitle>
+        <div>{text}</div>
+        <div style={{ fontSize: "9pt", color: "grey" }}>{createDate}</div>
+      </ToDoTitle>
+
       <div>
         <ButtonCategory
           style={{
